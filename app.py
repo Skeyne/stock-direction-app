@@ -48,7 +48,7 @@ if ticker_cached:
     mc = mpf.make_marketcolors(up='g',down='r')
     s  = mpf.make_mpf_style(marketcolors=mc)
     fig, ax = mpf.plot(ticker_data,type='line',style=s,show_nontrading=False, figscale = 0.6,figratio = (12,4),returnfig=True)
-    st.pyplot(fig, use_container_width=True)
+    st.pyplot(fig)
     ##HYPERPARAMETERS
     hp_c = st.number_input("C:",min_value = 0.0,value = 1.0)
     ##SETUP, TRAIN, EVALUATE##
