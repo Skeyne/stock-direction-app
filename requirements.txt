@@ -1,0 +1,7 @@
+mpl-finance==0.10.1
+numpy==1.22.4
+pandas==1.4.3
+scikit-learn==1.1.1
+stockstats==0.4.1
+streamlit==1.14.0
+yfinance==0.1.74
