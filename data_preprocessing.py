@@ -27,6 +27,7 @@ class TimeSeriesDataset:
 
         data = data.to_numpy()
         data = data[200:]
+        n_samples = min(len(data),n_samples)    
         # shorten dataset
         if n_samples != 0:
             data = data[-n_samples:]
