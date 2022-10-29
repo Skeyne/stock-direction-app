@@ -11,13 +11,13 @@ import os
 from sklearn import metrics
 version = "1.0"
 st.set_page_config(
-    page_title="App?? FR??",
-    page_icon=":sweat_drops:"   
+    page_title="STONKS",
+    page_icon=":chart_with_upwards_trend:"   
 )
 
 with st.sidebar:
-    st.title("Sidebar")
-    st.radio("Navigation",["Visualise", "Train","About"])
+    #st.title("Sidebar")
+    #st.radio("Navigation",["Visualise", "Train","About"])
     st.sidebar.success("We did it reddit!")
 
 if 'started_analyis' not in st.session_state:
@@ -70,5 +70,5 @@ if ticker_cached:
     st.info("Classification accuracy is the percentage of correctly matching target labels guessed",icon="ℹ️")
     effec_acc = np.sum(alt_accuracy)/len(alt_accuracy)
     st.write("Effective accuracy: {:.2f}%".format(100*effec_acc))
-    st.info("Effective accuracy counts cases where the classifier wrongfully guessed a directon when the magnitude was too low but the actual direction matched", icon="ℹ️")
+    st.info("Effective accuracy counts cases where the classifier wrongfully guessed a direction when the magnitude was too low but the actual direction matched", icon="ℹ️")
     error = prediction != data.y_val
