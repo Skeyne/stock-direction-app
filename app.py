@@ -37,8 +37,8 @@ if st.button("Reload"):
     ticker_data.to_pickle(symbol+'.pkl')
 if ticker_cached:
     ticker_data = pd.read_pickle(symbol+'.pkl')
-    sample_n = st.number_input("Intervals to extract:",min_value = 0)
     window_size = st.number_input("Window size:",min_value = 1,value = 5)
+    sample_n = st.number_input("Intervals to extract:",min_value = window_size)
     data = TimeSeriesDataset(ticker_data).sample(sample_n,window_size=window_size)
     c1, c2 = st.columns([1, 1])
     c1.write("Raw ticker data: "+str(ticker_data.shape))
