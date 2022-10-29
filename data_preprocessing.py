@@ -42,14 +42,11 @@ class TimeSeriesDataset:
         data_sliced = data_sliced[:,:,1:]
         targets = data_norm[window_size:,3]
         test_index = -4
-        print(targets[test_index],"i.e.",targets[test_index]-1,"return")
-        print(np.abs(targets-1)[test_index]>=0.007)
         targets = np.where(np.abs(targets-1)>=0.01,np.sign(targets-1),0)
         targets_pre = np.sign(targets-1)
         self.targets_pre = targets_pre
         occurences = np.bincount((targets+1).astype(int))
         self.occurences = occurences
-        print(targets[test_index])
         split = 0.90
         split_index = int(len(data_sliced)*split)
         self.y_train, self.y_val = np.split(targets,indices_or_sections=[split_index])
@@ -57,9 +54,3 @@ class TimeSeriesDataset:
         data_train, data_val = np.split(data_sliced,indices_or_sections=[split_index])
         self.train = data_train.reshape((data_train.shape[0],data_train.shape[1]*data_train.shape[2]))
         self.val = data_val.reshape((data_val.shape[0],data_val.shape[1]*data_val.shape[2]))
-        
-        print("Index to split at:",split_index)
-        print("Train data shape:",data_train.shape)
-        print("Train target shape:",self.y_train.shape)
-        print("Validation data shape:",data_val.shape)
-        print("Validation target shape:",self.y_val.shape)
