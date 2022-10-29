@@ -8,12 +8,11 @@ class TimeSeriesDataset:
         self.data_raw = data_raw
         self.process_data()
 
-    def sample(self,n_samples):
-        self.process_data(n_samples=n_samples)
+    def sample(self,n_samples,window_size=1):
+        self.process_data(n_samples=n_samples,window_size=window_size)
         return self
 
-    def process_data(self,n_samples: int=0):
-        window_size = 5
+    def process_data(self,n_samples: int=0, window_size: int=1):
         data = self.data_raw.iloc[:,[0,1,2,3]].copy()
         
         #data_indicators = self.data_raw.iloc[:,[0,1,2,3]].copy()
